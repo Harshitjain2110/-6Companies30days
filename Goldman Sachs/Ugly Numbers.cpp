@@ -33,7 +33,7 @@ public:
 	    // code here
 	    if(n==1)
 	        return 1;
-	   
+    //METHOD-1:   
     //We have used the min priority queue to fetch out the minimum element
     //Pop out an element and insert it after multiplying it with 2,3 and 5
     //In order to keep track of the elements considered or not or to avoid repetition , we have used unordered_set
@@ -71,3 +71,30 @@ public:
 	    return min;
 	}
 };
+
+
+
+
+
+
+
+//----------------------------------------------METHOD-2------------------------------------------------------------
+//Only using set
+
+set<long long> q;
+    	q.insert(1);
+    	long long f;
+        while(n--){
+            auto it = q.begin();
+            f=*it;
+            q.erase(it);
+            q.insert(f*2);
+            q.insert(f*3);
+            q.insert(f*5);
+        }
+        return f;
+
+
+
+
+
